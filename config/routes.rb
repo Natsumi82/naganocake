@@ -34,6 +34,10 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
 }
 
+    scope module: :public do
+    root 'homes#top'
+  end
+
   namespace :public do
     get 'addresses/index'
     get 'addresses/edit'
