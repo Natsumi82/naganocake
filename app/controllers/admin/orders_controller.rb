@@ -33,11 +33,11 @@ class Admin::OrdersController < ApplicationController
    private
 
    def order_params
-     params.require(:order).permit(:order_status)
+     params.require(:order).permit(:status)
    end
 
-   def item_order_params
-     params.require(:item_order).permit(:item_orders_status, :id)
+   def order_detail_params
+     params.require(:order_detail).permit(:order_id, :item_id, :amount, :price, :making_status)
    end
 
 

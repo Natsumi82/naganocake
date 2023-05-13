@@ -30,6 +30,10 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
 
+   namespace :admin do
+    get 'searches/search'
+  end
+
   # 顧客用
 # URL /customers/sign_in ...
   devise_for :customers, controllers: {
@@ -69,6 +73,8 @@ Rails.application.routes.draw do
     get 'homes/top'
     get 'homes/about'
   end
+
+
 
 
 
