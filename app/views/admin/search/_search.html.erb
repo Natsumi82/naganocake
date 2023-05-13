@@ -1,0 +1,7 @@
+<div class="search-window">
+  <%= form_tag(admin_search_path, method: :get) do %>
+    <%= select_tag 'range' ,options_for_select([['---選択してください---', ''], ['会員名', '1'], ['商品名', '2']]) %>
+    <%= text_field_tag (:word) %>
+    <%= submit_tag "検索" %>
+  <% end %>
+</div>

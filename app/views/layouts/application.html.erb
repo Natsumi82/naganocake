@@ -6,11 +6,144 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <<body class="d-flex flex-column vh-100">
+ <header>
+ <nav class="navbar navbar-expand-lg navbar-light navbar-white bg-white text-black">
+  <div class="container">
+  <a class="navbar-brand" href="/">
+   <span>NaganoCake</span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <ul class="navbar-nav ml-auto">
+
+ <% if customer_signed_in? %>
+   <nav class="nav navbar-brand navbar-left header-logo">
+    <%= link_to root_path,class:"header-logo-letter" do %>
+    <% end %>
+    </nav>
+
+ <nav class="nav navbar-nav">
+  <span class="customer-name  login-customer-name">
+    ようこそ、<%= current_customer.first_name %><%= current_customer.last_name %>さん！
+  </span>
+ </nav>
+
+  <nav>
+  <%= link_to customer_path(current_cutomer.id), class: "btn btn-black text-black text-right", method: :get do %>
+  マイページ
+  <% end %>
+
+  <%= link_to items_path, class: "btn btn-black text-black text-right", method: :get do %>
+  商品一覧
+  <% end %>
+
+  <%= link_to order_details_path, class: "btn btn-black text-black text-right", method: :get do %>
+  カート
+  <% end %>
+
+  <%= link_to destroy_customer_session_path, class: "btn btn-black text-black text-right", method: :delete do %>
+  ログアウト
+  <% end %>
+
+    </ul>
+  </nav>
+
+ <% elsif admin_signed_in? %>
+
+　<div class= "admin-header">
+  <div class= "admin-nav-bars">
+  <nav class="nav navbar-brand navbar-left header-logo">
+  <%= link_to admin_root_path,class:"header-logo-letter" do %><%= image_tag('logo.png', class: 'admin_shop_logo') %>
+  <% end %>
+  </nav>
+  <nav class="nav navbar-nav">
+      <span class="adjust">
+      </span>
+   </nav>
+
+ <nav>
+  <ul class="nav navbar-nav navbar-right">
+ <%= link_to admin__items_path, class: "btn btn-black text-black text-right", method: :get do %>
+ 商品一覧
+  <% end %>
+
+  <%= link_to admin_customer_path, class: "btn btn-black text-black text-right", method: :get do %>
+  会員一覧
+  <% end %>
+
+  <%= link_to admin_orders_path, class: "btn btn-black text-black text-right", method: :get do %>
+  注文履歴一覧
+  <% end %>
+
+  <%= link_to admin_genres_path, class: "btn btn-black text-black text-right", method: :get do %>
+  ジャンル一覧
+  <% end %>
+
+  <%= link_to destroy_admin_session_path, class: "btn btn-black text-black text-right", method: :delete do %>
+  ログアウト
+  <% end %>
+
+      </ul>
+    </nav>
+  </div>
+
+</div>
+
+<% else %>
+<nav class="nav navbar-brand navbar-left header-logo">
+  <%= link_to root_path,class:"header-logo-letter" do %> <%= image_tag('logo.png', class: 'shop_logo') %><% end %>
+</nav>
+<nav class="nav navbar-nav">
+  <span class="adjust">
+  </span>
+</nav>
+<nav>
+  <ul class="nav navbar-nav navbar-right">
+<%= link_to public_homes_about_path, class: "btn btn-black text-black text-right", method: :get do %>
+About
+  <% end %>
+
+ <%= link_to customer_items_path, class: "btn btn-black text-black text-right", method: :get do %>
+  商品一覧
+  <% end %>
+
+ <%= link_to new_customer_registration_path, class: "btn btn-black text-black text-right", method: :get do %>
+  新規登録
+  <% end %>
+
+  <%= link_to new_customer_session_path, class: "btn btn-black text-black text-right", method: :get do %>
+  ログイン
+  <% end %>
+  </ul>
+</nav>
+
+<% end %>
+      </div>
+    </header>
+    <main>
+      <div class="container main-container">
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>">
+            <%= message %>
+          </div>
+        <% end %>
     <%= yield %>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-5 col-xs-offset-9">
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,74 @@
+<div class="container">
+  <% if @range == '2' %>
+    <% if @items.count > 0 %>
+
+      <h2>' <%= @word %> 'の商品が <%= @items.count %>件見つかりました</h2>
+      <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+
+        <tr>
+          <td><%= item.id %></td>
+          <td><%= link_to item.name, admin_item_path(item) %></td>
+          <td><%= item.price %></td>
+          <td><%= item.genre.name %></td>
+          <td>
+            <% if item.is_enabled  == true %>
+            販売中
+            <% else %>
+            販売停止中
+            <% end %>
+          </td>
+        </tr>
+
+        <% end %>
+        </tbody>
+      </table>
+     <% else %>
+      <h2> ' <%= @word %> 'の商品は見つかりませんでした</h2>
+     <% end %>
+
+  <% else %>
+    <% if @customers.count > 0 %>
+      <h2>' <%= @word %> 'の会員が <%= @clients.count %>名見つかりました</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customers.each do |client| %>
+            <tr>
+              <td><%= customer.id %></td>
+              <td><%= customer.first_name %><%= customer.last_name %></td>
+              <td><%= customer.email %></td>
+              <td><% if cutomer.deleted_at == nil %>
+                  有効会員
+              <% else %>
+                  無効会員
+              <% end %>
+              </td>
+              <td><%= link_to "Show", admin_customer_path(cutomer) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+    <h2> ' <%= @word %> 'の会員は見つかりませんでした</h2>
+    <% end %>
+  <% end %>
+</div>
