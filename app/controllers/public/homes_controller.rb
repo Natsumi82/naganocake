@@ -1,7 +1,7 @@
 class Public::HomesController < ApplicationController
   def top
 
-    @genres = Genre.where(is_enabled: true)
+    @genres = Genre.where(is_active: true)
   end
 
   def about

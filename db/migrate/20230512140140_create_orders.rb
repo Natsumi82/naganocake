@@ -9,8 +9,6 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.integer :total_payment, null: false             #請求額
       t.integer :payment_method, null: false            #支払方法
       t.integer :status, null: false                    #受注ステータス
-      t.datetime :remember_created_at, null: false      #登録日時
-      t.datetime :remember_updated_at, null: false      #更新日時
       t.timestamps
     end
   end

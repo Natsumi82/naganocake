@@ -16,7 +16,7 @@ class Admin::ItemsController < ApplicationController
   end
 
    def create
-     @item = Item.new(product_params)
+     @item = Item.new(item_params)
    end
 
    def update

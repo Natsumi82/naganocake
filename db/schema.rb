@@ -45,8 +45,6 @@ ActiveRecord::Schema.define(version: 2023_05_13_092539) do
     t.string "name", null: false
     t.string "postal_code", null: false
     t.string "address", null: false
-    t.datetime "remember_created_at", null: false
-    t.datetime "remember_updated_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -56,8 +54,8 @@ ActiveRecord::Schema.define(version: 2023_05_13_092539) do
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at", null: false
-    t.datetime "remember_updated_at", null: false
+    t.datetime "remember_created_at"
+    t.datetime "remember_updated_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
@@ -68,8 +66,6 @@ ActiveRecord::Schema.define(version: 2023_05_13_092539) do
     t.integer "item_id", null: false
     t.integer "customer_id", null: false
     t.integer "amount", null: false
-    t.datetime "remember_created_at", null: false
-    t.datetime "remember_updated_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -97,8 +93,7 @@ ActiveRecord::Schema.define(version: 2023_05_13_092539) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "remember_created_at", null: false
-    t.datetime "remember_updated_at", null: false
+    t.boolean "is_active", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -109,8 +104,6 @@ ActiveRecord::Schema.define(version: 2023_05_13_092539) do
     t.text "introduction", null: false
     t.integer "price", null: false
     t.boolean "is_active", null: false
-    t.datetime "remember_created_at", null: false
-    t.datetime "remember_updated_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -121,8 +114,6 @@ ActiveRecord::Schema.define(version: 2023_05_13_092539) do
     t.integer "price", null: false
     t.integer "amount", null: false
     t.integer "making_status", null: false
-    t.datetime "remember_created_at", null: false
-    t.datetime "remember_updated_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -136,8 +127,6 @@ ActiveRecord::Schema.define(version: 2023_05_13_092539) do
     t.integer "total_payment", null: false
     t.integer "payment_method", null: false
     t.integer "status", null: false
-    t.datetime "remember_created_at", null: false
-    t.datetime "remember_updated_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
