@@ -1,6 +1,6 @@
 <div class="row login-row">
 <div class="col-xs-3">
- <%= render 'genre_serch_form', genres: @genres %>
+ <%= render 'genre_search_form', genres: @genres %>
 </div>
 
 <div class="col-xs-9">
@@ -9,14 +9,14 @@
 <div class="item-box">
 <table class="table">
  <tr>
- <th><%= link_to item_path(item) do %>
-     <%= attachment_image_tag(item, :image,size: "180x130", fallback: "no_image.jpg") %>
+ <th><%= link_to public_items_index_path(item) do %>
+
      <% end %>
  </th>
  </tr>
 
  <tr>
- <th><%= link_to item.name, item_path(item) %></th>
+ <th><%= link_to item.name, public_items_index_path(item) %></th>
  </tr>
 
  <tr>
