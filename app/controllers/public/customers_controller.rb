@@ -1,5 +1,6 @@
 class Public::CustomersController < ApplicationController
    before_action :authenticate_customer!
+   acts_as_paranoid
 
   def show
     @customer = current_customer

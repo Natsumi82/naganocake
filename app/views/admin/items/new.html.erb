@@ -1,25 +1,32 @@
 <div class="row">
-  <h2>商品新規登録</h2>
-  <%= form_with(model: @item, url: admin_items_path,nethod: :post, local: true) do |f| %>
+ <p><h2>商品新規登録</h2></p>
+  <%= form_with(model: @item, url: admin_items_new_path,nethod: :post, local: true) do |f| %>
 
 <% if @item.errors.any? %>
-<h3><%= @item.errors.full.count %> error </h3>
+<h3><%= @item.errors.full.count %> error occurrence</h3>
 
 <ul>
   <%= @item.errors.full_messages.each do |message| %>
   <li><%= message %></li>
   <% end %>
 </ul>
-
+ <% end %>
 <div class="col-xs-5">
   <div class="field">
-    <%= f.label :image %>
-    <%= f.attachment_field :image %>
-  <div>
+    <p><%= f.label :image %></p>
+    <p><%= f.file_field :image, accept: "image/*" %></p>
+  </div>
+</div>
 
+<div class="col-xs-7">
   <div class="field">
     <%= f.label :商品名 %>
-    <%= f.text_area :introduction %>
+    <%= f.text_field :name, class: "form" %>
+  </div>
+
+  <div class="field">
+  <%= f.label :商品説明 %>
+  <%= f.text_area :introduction %>
   </div>
 
   <div class="field">
@@ -43,8 +50,8 @@
    <%= f.hidden_field :id, :value => @item.id %>
    <%= f.submit "新規登録", class:"btn btn-primary col-xs-12" %>
   </div>
-
-</div>
+ </div>
 <% end %>
 </div>
+
 
