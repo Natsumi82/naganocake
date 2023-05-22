@@ -9,7 +9,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :last_name, null: false                #姓
       t.string :first_name, null: false               #名
       t.string :last_name_kana, null: false           #姓カナ
-      t.string :first_name_lkana, null: false         #名カナ
+      t.string :first_name_kana, null: false         #名カナ
       t.string :postal_code, null: false              #郵便番号
       t.string :address, null: false                  #住所
       t.string :telephone_number, null: false         #電話番号
@@ -20,8 +20,8 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.datetime :reset_password_sent_at
 
       ## Rememberable
-      t.datetime :remember_created_at, null: false      #登録日時
-      t.datetime :remember_updated_at, null: false      #更新日時
+      t.datetime :remember_created_at       #登録日時
+      t.datetime :remember_updated_at      #更新日時
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false

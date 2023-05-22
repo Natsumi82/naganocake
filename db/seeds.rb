@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create!(:email => "natumikan82@gmail.com", :password =>"111111" )
 
+Customer.create!(:email => 'ntm.a82@gmail.com', :password => 'aaaaaa', :first_name => "青野", :last_name => "なつみ", :first_name_kana => "アオノ", :last_name_kana => "ナツミ", :phone_number => "08027885862", :postal_code => "8113225", :address => "福岡県福津市東福間3-5-2")
+
+Address.create!(:customer_id => 1, :receive_name => "田中太郎", :postal_code => "1111111", :address => "東京都豊島区西池袋1-2-3")
+
 Genre.create!(:name => "ケーキ" ,:is_active => true)
 Genre.create!(:name => "プリン" ,:is_active => true)
 Genre.create!(:name => "焼き菓子" ,:is_active => true)
@@ -25,3 +29,4 @@ Item.create!(:genre_id => 1, :name => "バナナケーキ", :price => 980, :intr
 Item.create!(:genre_id => 4, :name => "キャラメル", :price => 500, :introduction => "とろりととろけるキャラメルです。", :is_active => true)
 Item.create!(:genre_id => 4, :name => "金平糖", :price => 320, :introduction => "ちょっとしたプレゼントにどうぞ。", :is_active => true)
 
+Order.create!(:customer_id => 1, :name => "青野なつみ", :postal_code => "1234567", :address => "千葉県銚子市長野町123-456", :shipping_cost => 800, :payment_method => 0, :total_payment => 3550, :status => 0)
