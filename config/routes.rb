@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
   sessions: "admin/sessions"
 }
-
+  get 'top' => 'homes#top'
   namespace :admin do
     get 'orders/show'
   end
@@ -57,10 +57,10 @@ Rails.application.routes.draw do
     get 'orders/show'
   end
   namespace :public do
-    get 'cart_items/index'
+    resources :cart_items, only: [:index]
   end
   namespace :public do
-    get 'customers/show'
+    get 'customers/my_page' => 'customers#show'
     get 'customers/edit'
     get 'customers/unsubscribe'
     get 'customers/withdraw'

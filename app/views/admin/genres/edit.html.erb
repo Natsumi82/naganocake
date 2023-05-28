@@ -1,14 +1,17 @@
 <div class="row">
 <h2 class="genre-edit-head">ジャンル編集</h2>
-<%= form_for(@genre, url: admins_genre_path(@genre),html: {method: "patch"}) do |genre| %>
+<%= form_with model: @genre, url: admin_genres_index_path, id: 'new_genre', class: 'new_genre' do |f| %>
 
-	<%= genre.text_field :name %>
+	<%= @genre.text_field :name %>
+
 	<label>
-	<%= genre.radio_button :is_active, :true %>有効
+	<%= @genre.radio_button :is_active, :true %>有効
 	</label>
+
 	<label>
-	<%= genre.radio_button :is_active, :false %>無効
+	<%= @genre.radio_button :is_active, :false %>無効
 	</label>
-	<%= genre.submit '変更を保存する',class:"btn btn-success genre-submit" %>
+
+	<%= @genre.submit '変更を保存する',class:"btn btn-success genre-submit" %>
 <% end %>
 </div>

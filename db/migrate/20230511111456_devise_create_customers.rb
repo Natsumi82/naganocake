@@ -13,7 +13,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :postal_code, null: false              #郵便番号
       t.string :address, null: false                  #住所
       t.string :telephone_number, null: false         #電話番号
-      t.boolean :is_deleted, null: false              #退会ステータス
+      t.boolean :is_deleted, null: false,default: false              #退会ステータス
 
       ## Recoverable
       t.string   :reset_password_token

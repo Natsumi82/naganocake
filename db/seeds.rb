@@ -29,4 +29,4 @@ Item.create!(:genre_id => 1, :name => "バナナケーキ", :price => 980, :intr
 Item.create!(:genre_id => 4, :name => "キャラメル", :price => 500, :introduction => "とろりととろけるキャラメルです。", :is_active => true)
 Item.create!(:genre_id => 4, :name => "金平糖", :price => 320, :introduction => "ちょっとしたプレゼントにどうぞ。", :is_active => true)
 
-Order.create!(:customer_id => 1, :name => "青野なつみ", :postal_code => "1234567", :address => "千葉県銚子市長野町123-456", :shipping_cost => 800, :payment_method => 0, :total_payment => 3550, :status => 0)
+Order.create!(:customer_id => 1, :name => "青野なつみcd ", :postal_code => "1234567", :address => "千葉県銚子市長野町123-456", :shipping_cost => 800, :payment_method => 0, :total_payment => 3550, :status => 0)
