@@ -1,8 +1,8 @@
 <div class="row">
 <h2 class="genre-edit-head">ジャンル編集</h2>
-<%= form_with model: @genre, url: admin_genres_index_path, id: 'new_genre', class: 'new_genre' do |f| %>
+<%= form_with model: @genre, url: admin_genres_path, id: 'new_genre', class: 'new_genre' do |f| %>
 
-	<%= @genre.text_field :name %>
+	<%= @genres.text_field :name %>
 
 	<label>
 	<%= @genre.radio_button :is_active, :true %>有効

@@ -9,14 +9,14 @@
 <div class="item-box">
 <table class="table">
  <tr>
- <th><%= link_to public_items_index_path(item) do %>
+ <th><%= link_to public_items_path(item) do %>
 
      <% end %>
  </th>
  </tr>
 
  <tr>
- <th><%= link_to item.name, public_items_index_path(item) %></th>
+ <th><%= link_to item.name, public_items_path(item) %></th>
  </tr>
 
  <tr>

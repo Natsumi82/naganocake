@@ -9,7 +9,7 @@
 				<br>退会する場合は、「退会する」をクリックしてください。
 </div>
 
-			<%= link_to "退会しない", customer_path(@customer), class: "btn btn-primary"%>&ensp;
-			<%= link_to "退会する", customer_path(@customer), method: :delete, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn btn-danger" %>
+			<%= link_to "退会しない", public_customers_my_page_path(@customer), class: "btn btn-primary"%>&ensp;
+			<%= link_to "退会する", public_customers_unsubscribe_path(@customer), method: :delete, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn btn-danger" %>
 </div>
 </div>
